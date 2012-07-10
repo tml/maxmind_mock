@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/Core/" /> -->
+<!-- Chocolate Midnight Modernist Oldstyle Steely Swiss Traditional Ultramarine -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+</head>
+
+<body>
+
+
+
+<select id="switchGeoLocAPI">
+    <option value="http://j.maxmind.com/app/geoip.js">MaxMind (vendor)</option>
+    <option value="http://examples.joeysmith.com/ut/ut.js">Utah County, Utah</option>
+    <option value="http://examples.joeysmith.com/ut/wa.js">Washington County, Utah</option>
+    <option value="http://examples.joeysmith.com/ut/ka.js">Kane County, Utah</option>
+    <option value="http://examples.joeysmith.com/ut/we.js">Weber County, Utah</option>
+    <option value="http://examples.joeysmith.com/fl/pa.js">Pasco County, Florida</option>
+</select>
+
+<div id="geoInfo">
+	<label for="geoip_city">City:</label><div id="geoip_city"></div>
+	<label for="geoip_longitude">Longitude</label><div id="geoip_longitude"></div>
+</div>
+
+<script type="application/javascript">
+var updateGeoBlock = function() {
+	$('#switchGeoLocAPI option:selected').each(function (optidx, optnode) {
+    	$.getScript(optnode.value, function() {
+			$("#geoInfo").children('div').each(function (idx, child) {
+				var node = $(child);
+				var value =  eval(node.attr('id'));
+				node.text(value);
+			});
+		}).fail(function (jqxhr, settings, exception) {
+			try {
+				console.warn(exception);
+			} catch (noConsole) {
+				// There's no console available in this browser; it's probably firefox without Firebug, or an old IE
+			}
+		});
+	});
+};
+$('#switchGeoLocAPI').change(function() {
+	updateGeoBlock();
+});
+$.ready(updateGeoBlock());
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
