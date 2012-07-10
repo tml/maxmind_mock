@@ -1,0 +1,10 @@
+function geoip_country_code() { return 'PL'; }
+function geoip_country_name() { return 'Poland'; }
+function geoip_city()         { return 'Bydgoszcz'; }
+function geoip_region()       { return '73'; }
+function geoip_region_name()  { return 'Kujawsko-Pomorskie'; }
+function geoip_latitude()     { return '53.1271'; }
+function geoip_longitude()    { return '18.0200'; }
+function geoip_postal_code()  { return ''; }
+function geoip_area_code()    { return ''; }
+function geoip_metro_code()   { return ''; }
