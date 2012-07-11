@@ -1,0 +1,10 @@
+function geoip_country_code() { return 'JP'; }
+function geoip_country_name() { return 'Japan'; }
+function geoip_city()         { return 'Mitaka'; }
+function geoip_region()       { return '40'; }
+function geoip_region_name()  { return 'Tokyo'; }
+function geoip_latitude()     { return '35.6833'; }
+function geoip_longitude()    { return '139.5500'; }
+function geoip_postal_code()  { return ''; }
+function geoip_area_code()    { return ''; }
+function geoip_metro_code()   { return ''; }
